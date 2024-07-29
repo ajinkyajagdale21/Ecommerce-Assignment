@@ -4,9 +4,14 @@ const {mailer} = require('./nodemailerConfig.js')
 const {PrismaClient} = require('@prisma/client')
 const bcrypt = require('bcrypt')
 const {faker}  = require('@faker-js/faker')
+const cors = require('cors')
+var bodyParser = require('body-parser')
+require("dotenv").config();
 
 const prisma = new PrismaClient()
 const app = express()
+app.use(cors());
+app.use(bodyParser.json())
 
 app.use(express.json())
 
